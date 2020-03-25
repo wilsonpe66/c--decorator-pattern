@@ -3,7 +3,7 @@
 ## Build debug
 
 1. For the first time.
-   - [ -z debug ] || mkdir debug
+   - [ -d debug ] || mkdir debug
    - pushd debug
    - cmake -DCMAKE_BUILD_TYPE=Debug ..
    - make
@@ -20,7 +20,7 @@
 ## Build release
 
 1. For the First time.
-   - [ -z release ] || mkdir release
+   - [ -d release ] || mkdir release
    - pushd release
    - cmake -DCMAKE_BUILD_TYPE=Release ..
    - make build-release
