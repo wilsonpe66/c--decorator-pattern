@@ -13,6 +13,15 @@ build-release:
 install: build-release
 	cd release && make -j$(NUM_TREADS) build-release && echo "Installing" && sudo make install
 
+update-vendors:
+	git fetch --recurse-submodules
+	git submodule foreach --recursive git checkout master
+	git submodule foreach --recursive git pull
+	git submodule foreach --recursive git add .
+	git submodule foreach --recursive git commit -m "Update vendors"
+	[ -d vedors ] && git add vendors
+	git commit -m "Updated Vendors"
+
 uninstall:
 	cd release && sudo make uninstall
 
